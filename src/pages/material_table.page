@@ -6,7 +6,7 @@
   <link href='//fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' />
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <!-- Compiled and minified JavaScript -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
@@ -19,12 +19,16 @@
       text-align : center;
       }
       .pre-loader {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin-left: -32px; /* -1 * image width / 2 */
-      margin-top: -32px; /* -1 * image height / 2 */
-      display: none;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -32px; /* -1 * image width / 2 */
+        margin-top: -32px; /* -1 * image height / 2 */
+        display: none;
+      }
+      nav {
+        color: #fff;
+        background-color: #00a0de;
       }
   </style>
   <!-- Custom Javascript -->
@@ -90,16 +94,10 @@
    </apex:remoteObjects>
 
   <div class="container">
-    <div class="row">
-      <div class="col s12">
           <nav id="mainNav" class="z-depth-4 col s12">
-            <a class="brand-logo">
-              <h3 class="black-text text-lighten-1">Material Design with Salesforce</h3>
-            </a>
-        </nav>
-      </div>
-    </div>
-    <div class="row">
+              <h3 class="text text-lighten-1 col s6 " style="text-align:center; padding-top:5px;">Materialized</h3>
+          </nav>
+    <div class="row" style="padding-top:30px;">
       <div class="col s6">
         <a class="waves-effect waves-yellow btn col s12 z-depth-2 col" onclick="DML()">  <i class="large material-icons">loop</i>Pull Salesforce Accounts</a>
       </div>
@@ -124,8 +122,8 @@
     </div>
 
     <!-- List Results here -->
-     <div class="wrapper z-depth-4 col s12" id="cList">
-      <table id='summaryOfResults' class="striped">
+     <div class="wrapper col s12" id="cList">
+      <table id='summaryOfResults' class="hoverable">
         <thead>
           <tr>
               
