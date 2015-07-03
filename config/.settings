@@ -1,0 +1,19 @@
+{
+    "username": "material@salesforce.com", 
+    "environment": "production", 
+    "project_name": "Material", 
+    "workspace": "/Users/HarshitAnu/Documents/workspace", 
+    "org_url": "", 
+    "namespace": "", 
+    "id": "GON2ZYH0MYOVSYXQFM1A0LUC5AMFAB4T", 
+    "metadata_container": "1dc370000004WuIAAU", 
+    "subscription": [
+        "ApexClass", 
+        "ApexComponent", 
+        "ApexPage", 
+        "ApexTrigger", 
+        "StaticResource", 
+        "CustomObject", 
+        "Profile"
+    ]
+}
