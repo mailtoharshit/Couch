@@ -18,6 +18,14 @@
       {
       text-align : center;
       }
+      .pre-loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -32px; /* -1 * image width / 2 */
+      margin-top: -32px; /* -1 * image height / 2 */
+      display: none;
+      }
   </style>
   <!-- Custom Javascript -->
   <script> 
@@ -29,6 +37,8 @@
               $('#cList').empty();
           }
       }
+
+      
       
       var DML = function(){
           //clear old list beforehand 
@@ -47,7 +57,8 @@
           //Method to Pouplate Records
           function populate(records)
           {
-             
+             $('#summaryOfResults').empty();
+             $("#loader").show();
               var table = $('#summaryOfResults');
               var trHtml = '';
               records.forEach(function(record) {
@@ -55,6 +66,7 @@
                   var toAdd = record.get("Name");
                   trHtml += '<tr><td>'+toAdd+'</td></tr>';
               });
+              $("#loader").fadeOut("slow");
               //Append final html
               $('#summaryOfResults').append(trHtml);
           }
@@ -98,6 +110,19 @@
       </table>  
     </div>
   </div>
+  <!-- Preloader -->
+      <div id="loader" class="preloader-wrapper big active offset-s6 pre-loader">
+        <div class="spinner-layer spinner-blue-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>    
 </body>
 </html>
 </apex:page>
