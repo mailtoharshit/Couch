@@ -1,0 +1,213 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false">
+  <head>
+  <meta charset="UTF-8" />
+    <!-- Angular Material Dependencies -->
+    <script src="//cdn.rawgit.com/mailtoharshit/Couch/master/gitCDN/angular.js"></script>
+    <script src="https://cdn.rawgit.com/mailtoharshit/Couch/master/gitCDN/angular-animate.js"></script>
+    <script src="//cdn.rawgit.com/mailtoharshit/Couch/master/gitCDN/angular-aria.js"></script>
+    <!-- Angular Material Javascript using GitCDN to load directly from `bower-material/master` -->
+    <script src="//cdn.rawgit.com/mailtoharshit/Couch/master/gitCDN/angular-material.js"></script>
+    <!-- Importing Personal Style from Github CDN -->
+    <link rel="stylesheet" href="//cdn.rawgit.com/mailtoharshit/Couch/gh-pages/stylesheets/homepage.css" />
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.7.1/angular-material.min.css" />
+ </head>
+
+<body ng-app="myApp">
+     <header md-page-header="true">
+        <div md-header-picture="true" style="background-image:url(http://dh0urp3pw3z7s.cloudfront.net/sites/default/files/Dreamforce13.jpeg)"></div>
+        <md-toolbar scroll="true">
+          <div class="md-toolbar-tools">
+            <md-button class="md-tools" aria-label="Go Back"><i class="ion-android-arrow-back"></i></md-button>
+            <h2 md-header-title="true" flex="true">Salesforce</h2>
+            <md-button class="md-tools" aria-label="Edit Contact"><i class="ion-android-create"></i></md-button>
+            <md-button class="md-tools" aria-label="More"><i class="ion-android-more-vertical"></i></md-button>
+          </div>
+        </md-toolbar>
+       <div class="main-fab"><md-button aria-label="Float Action Button" class="md-fab md-accent"><i class="ion-android-star"></i></md-button></div>
+     </header> 
+    <br /><br />
+    <section id="page-section">
+      <md-content>
+        <md-list>
+          <md-item>
+            <md-item-content>
+              <div class="md-tile-left">
+                <i class="ion-android-call"></i>
+              </div>
+              <div class="md-tile-content">
+                <i class="ion-android-hangout" style="float:right;margin-right:18px;margin-top:8px;color:#aaa;"></i>
+                <h3 style="padding-top:8px;">(950)555-1234</h3>
+                <p class="muted">
+                  Mobile
+                </p>
+              </div>
+            </md-item-content>
+          </md-item>
+          <md-item>
+            <md-item-content>
+              <div class="md-tile-left">
+                  
+              </div>
+              <div class="md-tile-content">
+                <i class="ion-android-hangout" style="float:right;margin-right:18px;color:#aaa;"></i>
+                <h3>(333)254-7851</h3>
+                <p class="muted">
+                  Work
+                </p>
+              </div>
+            </md-item-content>
+          </md-item>
+          
+          <md-divider></md-divider>
+          <md-item>
+            <md-item-content>
+              <div class="md-tile-left">
+                <i class="ion-android-mail"></i>
+              </div>
+              <div class="md-tile-content" >
+                <h3 style="padding-top:8px;">katyperryisme@mail.com</h3>
+                <p class="muted">
+                  Personal
+                </p>
+              </div>
+            </md-item-content>
+          </md-item>
+          <md-item>
+            <md-item-content>
+              <div class="md-tile-left">
+                  
+              </div>
+              <div class="md-tile-content">
+                <h3>katykate@mail.com</h3>
+                <p class="muted">
+                  Work
+                </p>
+              </div>
+            </md-item-content>
+          </md-item>
+          <md-divider></md-divider>
+          
+          <md-item>
+            <md-item-content>
+              <div class="md-tile-left">
+                <i class="ion-android-pin"></i>
+              </div>
+              <div class="md-tile-content" >
+                <h3 style="padding-top:8px;">2000 SW 1st Ave</h3>
+                <h3>San Fransisco, CA 94112</h3>
+                <p class="muted">Home</p>
+              </div>
+            </md-item-content>
+          </md-item>
+          <md-item>
+            <md-item-content>
+              <div class="md-tile-left">
+                  
+              </div>
+              <div class="md-tile-content">
+                <h3>1600 Amphitheatre Pkwy</h3>
+                <h3>Mountain View, CA 94043</h3>
+                <p class="muted">Work</p>
+              </div>
+            </md-item-content>
+          </md-item>
+          <md-divider></md-divider>
+          
+          
+        </md-list>
+      </md-content>
+    </section>
+    <script type="text/javascript">
+            var app = angular.module('myApp', ['ngMaterial']);
+
+        /*
+         * 'scroll' Angular Directive
+         * Used to handle page header during scroll event (and rezise event too) of the window.
+         *
+         */
+        app.directive("scroll", function($window) {
+
+          return function(scope, element, attrs) {
+
+            /* header DOM element with md-page-header attribute */
+            var header = document.querySelector('[md-page-header]');
+            /* Store header dimensions to initialize header styling */
+            var baseDimensions = header.getBoundingClientRect();
+            /* DOM element with md-header-title attribute (title in toolbar) */
+            var title = angular.element(document.querySelector('[md-header-title]'));
+            /* DOM element with md-header-picture attribute (picture in header) */
+            var picture = angular.element(document.querySelector('[md-header-picture]'));
+            /* DOM element with main-fab class (a DOM element which contains the main float action button element) */
+            var fab = angular.element(document.querySelector('.main-fab'));
+            /* The height of a toolbar by default in Angular Material */
+            var legacyToolbarH = 64;
+            /* The mid-height of a float action button by default in Angular Material */
+            var legacyFabMid = 56 / 2;
+            /* The zoom scale of the toolbar title when it's placed at the bottom of the header picture */
+            var titleZoom = 1.5;
+            /* The primary color palette used by Angular Material */
+            var primaryColor = [63, 81, 181];
+
+            function styleInit() {
+              title.css('padding-left', '16px');
+              title.css('position', 'relative');
+              title.css('transform-origin', '24px');
+            }
+
+            function handleStyle(dim) {
+              fab.css('top', (dim.height - legacyFabMid) + 'px');
+              if ((dim.bottom - baseDimensions.top) > legacyToolbarH) {
+                title.css('top', ((dim.bottom - baseDimensions.top) - legacyToolbarH) + 'px');
+                element.css('height', (dim.bottom - baseDimensions.top) + 'px');
+                title.css('transform', 'scale(' + ((titleZoom - 1) * ratio(dim) + 1) + ',' + ((titleZoom - 1) * ratio(dim) + 1) + ')');
+
+              } else {
+                title.css('top', '0px');
+                element.css('height', legacyToolbarH + 'px');
+                title.css('transform', 'scale(1,1)');
+              }
+              if ((dim.bottom - baseDimensions.top) < legacyToolbarH * 2 && !fab.hasClass('hide')) {
+                fab.addClass('hide');
+              }
+              if ((dim.bottom - baseDimensions.top) > legacyToolbarH * 2 && fab.hasClass('hide')) {
+                fab.removeClass('hide');
+              }
+              element.css('background-color', 'rgba(' + primaryColor[0] + ',' + primaryColor[1] + ',' + primaryColor[2] + ',' + (1 - ratio(dim)) + ')');
+              picture.css('background-position', '50% ' + (ratio(dim) * 50) + '%');
+              /* Uncomment the line below if you want shadow inside picture (low performance) */
+              //element.css('box-shadow', '0 -'+(dim.height*3/4)+'px '+(dim.height/2)+'px -'+(dim.height/2)+'px rgba(0,0,0,'+ratio(dim)+') inset');
+            }
+
+            function ratio(dim) {
+              var r = (dim.bottom - baseDimensions.top) / dim.height;
+              if (r < 0) return 0;
+              if (r > 1) return 1;
+              return Number(r.toString().match(/^\d+(?:\.\d{0,2})?/));
+            }
+
+            styleInit();
+            handleStyle(baseDimensions);
+
+            /* Scroll event listener */
+            angular.element($window).bind("scroll", function() {
+              var dimensions = header.getBoundingClientRect();
+              handleStyle(dimensions);
+              scope.$apply();
+            });
+
+            /* Resize event listener */
+            angular.element($window).bind('resize', function() {
+              baseDimensions = header.getBoundingClientRect();
+              var dimensions = header.getBoundingClientRect();
+              handleStyle(dimensions);
+              scope.$apply();
+            });
+
+          };
+
+        });
+</script>
+</body>
+
+</apex:page>
